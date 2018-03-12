@@ -82,8 +82,8 @@ impl Easy {
   fn get_result(&self, code: CURLcode) -> Result<(), Error> {
     match code {
       CURLE_OK => Ok(()),
-      _ => Err(From::from(
-        str::from_utf8(&self.error_buffer).map(|s| s.trim_matches('\u{0}')).unwrap_or("Unknown error"))),
+      _ => Err(From::from(format!("CURLcode={}, {}", code,
+        str::from_utf8(&self.error_buffer).map(|s| s.trim_matches('\u{0}')).unwrap_or("Unknown error")))),
     }
   }
 
