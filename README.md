@@ -17,7 +17,7 @@ $ httpstat https://www.rust-lang.org/
 ```
 
 as package:
-```
+```rust
 extern crate httpstat;
 
 fn main() {
